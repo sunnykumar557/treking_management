@@ -1,0 +1,139 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+
+.container{
+    width: 85vw ;
+}
+
+.flex{
+    display: flex;
+}
+.flex-col{
+    flex-direction: column;
+}
+.center{
+    justify-content: center;
+    align-items: center;
+}
+
+.button{
+    background-color: black;
+    color: white;
+    border: 1px solid black;
+    border-radius: 5px;
+    height: 2rem;
+    cursor: pointer;
+}
+
+
+/* ------------------------------------------------------ */
+
+.main-body{
+    height: 100vh;
+}
+
+.form-body{
+    margin-top: 2rem;
+    border: 1px solid rgb(228, 227, 227);
+    border-radius: 10px;
+    padding: 1.5rem;
+}
+
+.form-body h3{
+    font-weight: 600;
+}
+
+.form-body p{
+    font-size: 14px;
+    color: rgb(109, 109, 109);
+    margin:8px 0px;
+}
+
+.form-body a{
+    font-size: 14px;
+    color: rgb(0, 0, 0);
+    margin:8px 0px;
+    font-weight: 600;
+    
+}
+
+
+.form-body form{
+    margin-top: 1.5rem;
+    width: 25vw;
+}
+
+
+.form-body form input{
+    outline: none;
+    border: 1px solid rgb(228, 227, 227);
+    border-radius: 5px;
+    margin-bottom: 8px;
+    padding: 6px;
+    font-size: 16px;
+}
+
+.form-body form label{
+    font-size: 14px;
+    font-weight: 600;
+    color: rgb(24, 24, 24);
+    margin-bottom: 4px;
+
+}
+
+.form-body form .register-button{
+    margin-top: 1rem;
+}
+
+
+/* --------------------------------- */
+
+.dashboard-body{
+    height: 100vh;
+}
+
+
+.dashboard-body .sidebar{
+    width: 15vw;
+    border-right: 1px solid rgb(218, 218, 218);
+
+}
+
+.dashboard-body .sidebar .logo{
+    border-bottom: 1px solid rgb(218, 218, 218);
+    height: 5rem;
+    padding-left: 2rem;
+    padding-top: 28px;
+}
+
+
+.dashboard-body .sidebar ul{
+    margin-top: 2rem;
+    padding-left: 2rem;
+    font-size: 18px;
+    list-style-type: none;
+}
+
+.dashboard-body .sidebar ul li{
+    margin-bottom: 2rem;
+}
+
+
+
+
+.dashboard-body .right .navbar{
+    justify-content: space-between;
+    border-bottom: 1px solid rgb(218, 218, 218);
+    height: 5rem;
+    padding: 0px 2rem;
+}
+
+.dashboard-body .right .dashboard-content{
+    padding:1rem 2rem;
+
+}

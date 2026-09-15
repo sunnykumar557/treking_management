@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="/static/main.css">
+</head>
+<body>
+
+    <section class="main-body flex flex-col center">  
+        <div class="title">
+            <h1>OG Trekker</h1>
+        </div>
+
+        <div class="form-body flex flex-col center">
+            <h4>Welcome to OG Trekker</h4>
+            <p>Register your account</p>
+            <form class="flex flex-col" action="">
+                <label for="">Full Name </label><input type="text" name="fullName">
+                <label for="">Email </label><input type="email" name="emailId">
+                <label for="">Password </label><input type="password" name="password">
+                <label for="">Confirm Password </label><input type="password" name="confirmPassword">
+                <!-- <label for="">Role</label><input type="text" name="role"> -->
+                <label for="">Role</label>
+                <select name="role" id="">
+                    <option value="None" disabled selected>Select Role</option>
+                    <option value="staff">Staff</option>
+                    <option value="user">User</option>
+                 </select>
+                <input class="register-button button" type="button" value="Register">
+            </form>
+            <p>Already have an account ? <a href="/templates/login.html">Login</a></p>
+
+        </div>
+
+    </section>
+  
+    
+</body>
+</html>
