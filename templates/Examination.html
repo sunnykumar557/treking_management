@@ -1,0 +1,94 @@
+{% extends "layout.html" %}
+
+
+{% block content %}
+
+<div class="admin_dashboard">
+    <h1>Examination Page</h1>
+
+    <div style="grid-template-columns: 1fr 2fr;" class="admin_dashboard_body">
+        <div class="courses">
+            <h2>Create an exam</h2>
+            <form class="flex flex-col" action="/dashboard/examination" method="post">
+                <label for="">Exam Name</label><input type="text" name="exam_name" placeholder="Exam name" required>
+                <label for="">Duration </label><input type="number" name="duration" placeholder="Exam duration (In minutes)" required>
+                <label for="">Max Marks </label><input type="number" name="max_marks" placeholder="Max marks" required minlength="8">
+
+                <label for="">Exam Type</label>
+                <select name="exam_type" id="" required>
+                    <option value="" disabled selected>Select Exam Type</option>
+                    <option value="viva">Viva</option>
+                    <option value="practical">Practical</option>
+                    <option value="project_demo">Project Demo</option>
+                    <option value="assessment">Assessment</option>
+                 </select>
+
+                <label for="">Status</label>
+                <select name="status" id="" required>
+                    <option value="" disabled selected>Select Status</option>
+                    <option value="draft">Draft</option>
+                    <option value="slot_creation">Slot Creation</option>
+                    <option value="booking_open">Booking Open</option>
+                    <option value="closed">Closed</option>
+                    <option value="completed">Completed</option>
+                 </select>
+
+                <label for="">Slot Creation Start Date</label>
+                <input type="date" name="slot_creation_start_date" required>
+                
+
+                <label for="">Slot Creation End Date</label>
+                <input type="date" name="slot_creation_end_date" required>
+
+
+                <label for="">Slot Booking Start Date</label>
+                <input type="date" name="slot_booking_start_date" required>
+
+                <label for="">Slot Booking End Date</label>
+                <input type="date" name="slot_booking_end_date" required>
+
+                <input class="button" type="submit" value="Save">
+            </form>
+
+        </div>
+
+        <div class="courses">
+            <h2>Exams List</h2>
+
+            <div style="font-weight: bold;" class="course_list_lg">
+                <li class="flex center course_list_heading">
+                <h4>Exam Name</h4> 
+                <span>Exam Type</span> 
+                <p>Exam Status</p>
+                <div>Actions</div>
+                </li>
+            </div>
+
+            <div class="course_list_lg">
+
+                {% for exam in exam_data %}
+
+                    <li class="flex center">
+                        <h4>{{ exam.exam_name }}</h4> 
+                        <span>{{ exam.exam_type }}</span> 
+                        <p>{{ exam.exam_status }}</p>
+                        <div class="flex center">
+                            <button class="edit_button">Edit</button>
+                            <button class="delete_button"> <a href={{ url_for('dashboard.delete_examination', exam_id=exam.id) }} onclick="return confirm('Are you sure you want to delete this examination?')">Delete</a> </button>
+                        </div>
+                    </li>
+
+                {% endfor %}
+
+
+
+            </div>
+
+        </div>
+
+    </div>
+    
+
+</div>
+
+{% endblock %}

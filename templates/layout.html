@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="/static/main.css">
+</head>
+<body>
+
+    <section class="dashboard-body flex ">  
+       
+        <div class="sidebar flex flex-col">
+
+            <div class="logo">
+                <h2>Logo</h2>
+            </div>
+
+            <ul>
+                
+                {% if session["role"] == "admin" %}
+                    <li class="{{'active' if request.path == url_for('dashboard.get_stats') else ''}}"><a href="{{ url_for('dashboard.get_stats') }}">Stats</a></li>
+                    <li class="{{'active' if request.path == url_for('dashboard.get_courses') else ''}}"><a href="{{ url_for('dashboard.get_courses') }}">Courses</a></li>
+                    <li class="{{'active' if request.path == url_for('dashboard.get_examination') else ''}}"><a href="{{ url_for('dashboard.get_examination') }}">Examinations</a></li>
+                    <li class="{{'active' if request.path == url_for('dashboard.get_examiners') else ''}}"><a href="{{ url_for('dashboard.get_examiners') }}">Examiners</a></li>
+                    <li class="{{'active' if request.path == url_for('dashboard.get_students') else ''}}"><a href="{{ url_for('dashboard.get_students') }}">Students</a></li>                   
+                {% endif %}
+
+                {% if session["role"] == "student" %}
+                    <li><a href="{{ url_for('dashboard.get_stats') }}">Home</a></li>
+                    <li><a href="{{ url_for('dashboard.get_stats') }}">Profile</a></li>
+                    <li><a href="{{ url_for('dashboard.get_stats') }}">Bookings</a></li>
+                    <li><a href="{{ url_for('dashboard.get_stats') }}">Results</a></li>
+                {% endif %}
+
+                {% if session["role"] == "examiner" %}
+                    <li><a href="{{ url_for('dashboard.get_stats') }}">Profile</a></li>
+                    <li><a href="{{ url_for('dashboard.get_examination') }}">Exams</a></li>
+                    <li><a href="{{ url_for('dashboard.get_stats') }}">Bookings</a></li>
+                    <li><a href="{{ url_for('dashboard.get_courses') }}">Courses</a></li>
+                {% endif %}
+
+                <li><a href="{{ url_for('users.logout') }}" onclick="return confirm('Are you sure you want to logout?')">Logout</a></li>
+
+
+            </ul>
+
+        </div>
+
+        <div class="right">
+            <nav class="navbar container flex center">
+
+                <h3>{{ session.get('role') }}</h3>
+                <button class="delete_button"><a href="{{ url_for('users.logout') }}" onclick="return confirm('Are you sure you want to logout?')">Logout</a></button>
+            </nav>
+
+            <div class="dashboard-content">
+                {% block content %}
+
+                {% endblock %}
+
+            </div>
+
+        </div>
+        
+   
+
+   
+
+    
+
+    </section>
+  
+    
+</body>
+</html>

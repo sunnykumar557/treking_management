@@ -2,7 +2,35 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: sans-serif;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+.active a{
+    font-weight: 600;
+    color:red;
+}
+
+.alert-danger{
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #f5c6cb;
+    border-radius: 5px;
+}
+
+.alert-success{
+    background-color: #d4edda;
+    color: #155724;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #c3e6cb;
+    border-radius: 5px;
 }
 
 
@@ -22,6 +50,7 @@
 }
 
 .button{
+    font-weight: 600;
     background-color: black;
     color: white;
     border: 1px solid black;
@@ -29,6 +58,30 @@
     height: 2rem;
     cursor: pointer;
 }
+
+.delete_button{
+    font-weight: 600;
+    background-color: red;
+    color: white;
+    border: 1px solid red;
+    border-radius: 5px;
+    height: 2rem;
+    cursor: pointer;
+    padding:0 1rem;
+}
+
+.edit_button{
+    font-weight: 600;
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+    border-radius: 5px;
+    height: 2rem;
+    cursor: pointer;
+    padding:0 1rem;
+    margin-right: 10px;
+}
+
 
 
 /* ------------------------------------------------------ */
@@ -101,7 +154,6 @@
 .dashboard-body .sidebar{
     width: 15vw;
     border-right: 1px solid rgb(218, 218, 218);
-
 }
 
 .dashboard-body .sidebar .logo{
@@ -111,29 +163,156 @@
     padding-top: 28px;
 }
 
-
 .dashboard-body .sidebar ul{
     margin-top: 2rem;
     padding-left: 2rem;
+    padding-right: 1rem;
     font-size: 18px;
     list-style-type: none;
 }
 
 .dashboard-body .sidebar ul li{
     margin-bottom: 2rem;
+
 }
-
-
-
 
 .dashboard-body .right .navbar{
     justify-content: space-between;
     border-bottom: 1px solid rgb(218, 218, 218);
     height: 5rem;
-    padding: 0px 2rem;
+    padding: 0px 1rem;
 }
 
 .dashboard-body .right .dashboard-content{
-    padding:1rem 2rem;
+    padding:1rem;
+    background-color: rgb(241, 241, 241);
+    height: calc(100vh - 5rem);
+
+}
+
+.dashboard-body .right .dashboard-content .admin_dashboard .admin_dashboard_body{
+    display: grid;
+    row-gap: 1rem;
+    column-gap: 1rem;
+    margin-top: 1rem;
+}
+
+.dashboard-body .right .dashboard-content .admin_dashboard .admin_dashboard_body_lg{
+    display: grid;
+    row-gap: 1rem;
+    column-gap: 1rem;
+    margin-top: 1rem;
+}
+
+.courses{
+    border-radius: 10px;
+    padding: 1rem;
+    background-color: white;
+    border: 1px solid rgb(228, 227, 227);
+
+}
+
+.courses form{
+    padding: 10px 5px;
+    border-radius: 5px;
+    margin-top: 1rem;
+}
+
+.courses form input{
+    outline: none;
+    border: 1px solid rgb(189, 188, 188);
+    border-radius: 5px;
+    padding: 6px;
+    font-size: 14px;
+    margin-bottom:10px;
+}
+
+.courses form textarea{
+    outline: none;
+    border: 1px solid rgb(189, 188, 188);
+    border-radius: 5px;
+    padding: 6px;
+    font-size: 14px;
+    margin-bottom:10px;
+}
+
+.courses form select{
+    border-radius: 5px;
+    padding: 0px;
+    font-size: 16px;
+    background-color: beige;
+    margin-bottom:10px;
+}
+
+.courses .course_list {
+    overflow-y: scroll;
+    max-height: calc(24vh);
+}
+
+.courses .course_list_lg {
+    overflow-y: scroll;
+    max-height: calc(100vh - 20rem);
+}
+
+.courses .course_list_heading{
+    margin-top: 1rem;
+    width: 100%;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    border-bottom: 1px solid rgb(217, 215, 215);
+    padding: 10px 0px;
+}
+
+.courses .course_list_heading h4{
+    width: 25%;
+}
+
+
+.courses .course_list li{
+    width: 100%;
+    justify-content: space-between;
+    margin-bottom: 5px;
+    border-bottom: 1px solid rgb(217, 215, 215);
+    padding-bottom:5px;
+}
+
+.courses .course_list_lg li{
+    width: 100%;
+    justify-content: space-between;
+    margin-bottom: 5px;
+    border-bottom: 1px solid rgb(217, 215, 215);
+    padding-bottom:5px;
+}
+
+.courses .course_list li h4{
+    width: 25%;
+}
+.courses .course_list_lg li h4{
+    width: 25%;
+}
+
+.courses .course_list li span{
+    width: 25%;
+}
+.courses .course_list_lg li span{
+    width: 30%;
+
+}
+
+.courses .course_list li p{
+    width: 25%;
+}
+.courses .course_list_lg li p{
+    width: 20%;
+
+}
+
+.courses .course_list li div{
+    width: 25%;
+    justify-content: start;
+}
+.courses .course_list_lg li div{
+    width: 25%;
+    justify-content: start;
 
 }

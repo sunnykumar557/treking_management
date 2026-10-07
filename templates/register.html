@@ -10,27 +10,38 @@
 
     <section class="main-body flex flex-col center">  
         <div class="title">
-            <h1>OG Trekker</h1>
+            <h2>Examination Management Portal</h2>
         </div>
 
+
         <div class="form-body flex flex-col center">
-            <h4>Welcome to OG Trekker</h4>
+            <h4>Welcome to Exam Portal</h4>
             <p>Register your account</p>
-            <form class="flex flex-col" action="">
-                <label for="">Full Name </label><input type="text" name="fullName">
-                <label for="">Email </label><input type="email" name="emailId">
-                <label for="">Password </label><input type="password" name="password">
-                <label for="">Confirm Password </label><input type="password" name="confirmPassword">
-                <!-- <label for="">Role</label><input type="text" name="role"> -->
+            <div>
+                {% with messages = get_flashed_messages(with_categories=True) %}
+                    {% if messages %}
+                      {% for category, message in messages %}
+                        <div class="alert-{{ category }}" role="alert">
+                          {{ message }}
+                        </div>
+                      {% endfor %}
+                    {% endif %}
+                {% endwith %}
+            </div>
+            <form class="flex flex-col" action="/users/register" method="post">
+                <label for="">Full Name </label><input type="text" name="fullName" required>
+                <label for="">Email </label><input type="email" name="emailId" required>
+                <label for="">Password </label><input type="password" name="password" required minlength="8">
+                <label for="">Confirm Password </label><input type="password" name="confirmPassword" required minlength="8">
                 <label for="">Role</label>
-                <select name="role" id="">
-                    <option value="None" disabled selected>Select Role</option>
-                    <option value="staff">Staff</option>
-                    <option value="user">User</option>
+                <select name="role" id="" required>
+                    <option value="" disabled selected>Select Role</option>
+                    <option value="student">Student</option>
+                    <option value="examiner">Examiner</option>
                  </select>
-                <input class="register-button button" type="button" value="Register">
+                <input class="register-button button" type="submit" value="Register">
             </form>
-            <p>Already have an account ? <a href="/templates/login.html">Login</a></p>
+            <p>Already have an account ? <a href="/users/login">Login</a></p>
 
         </div>
 

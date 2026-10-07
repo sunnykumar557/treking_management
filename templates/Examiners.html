@@ -1,0 +1,54 @@
+{% extends "layout.html" %}
+
+
+{% block content %}
+
+<div class="admin_dashboard">
+    <h1>Examiners</h1>
+
+    <div style="grid-template-columns: 1fr;" class="admin_dashboard_body_lg">
+        {% for role,user_list in users | groupby("role") %}
+
+            {% if role == "examiner"%}
+            <div class="courses">
+                <h2>{{ role | capitalize }}s</h2>
+
+                <div style="font-weight: bold;" class="course_list_lg">
+                    <li class="flex center course_list_heading">
+                    <h4>Name</h4> 
+                    <span>Email</span> 
+                    <p>Status</p>
+                    <div>Actions</div>
+                    </li>
+                </div>
+
+
+                <div class="course_list_lg">
+
+                    {% for user in user_list %}
+
+                    <li class="flex center">
+                        <h4>{{ user.fullname }}</h4> 
+                        <span>{{ user.email }}</span> 
+                        <p>{{ user.status }}</p>
+                        <div class="flex center">
+                            <button class="edit_button"> <a href={{ url_for('dashboard.approve_status',examiner_id = user.id) }}>Approve</a></button>
+                            <button class="delete_button"><a href={{ url_for('dashboard.reject_status',examiner_id = user.id) }}>Reject</a></button>
+                        </div>
+                    </li>
+
+                    {% endfor %}
+
+                </div>
+            </div>           
+            {% endif %}
+
+        {% endfor %}
+
+
+    </div>
+    
+
+</div>
+
+{% endblock %}

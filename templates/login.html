@@ -10,19 +10,29 @@
 
     <section class="main-body flex flex-col center">  
         <div class="title">
-            <h1>OG Trekker</h1>
+            <h2>Examination Management Portal</h2>
         </div>
 
         <div class="form-body flex flex-col center">
-            <h4>Welcome back to OG Trekker</h4>
+            <h4>Welcome back to Exam Portal</h4>
             <p>Login to your account</p>
-            <form class="flex flex-col" action="">
-                <label for="">Email </label><input type="email" name="emailId">
-                <label for="">Password </label><input type="password" name="password">
-                <input class="register-button button" type="button" value="Login">
+            <div>
+                {% with messages = get_flashed_messages(with_categories=True) %}
+                    {% if messages %}
+                      {% for category, message in messages %}
+                        <div class="alert-{{ category }}" role="alert">
+                          {{ message }}
+                        </div>
+                      {% endfor %}
+                    {% endif %}
+                {% endwith %}
+            </div>
+            <form class="flex flex-col" action="/users/login" method="post">
+                <label for="">Email </label><input type="email" name="emailId" required>
+                <label for="">Password </label><input type="password" name="password" required>
+                <input class="register-button button" type="submit" value="Login">
             </form>
-            <p>Don't have an account ? <a href="/templates/register.html">Register</a></p>
-            <p> Dashboard <a href="/templates/dashboard.html">Dashboard</a></p>
+            <p>Don't have an account ? <a href="/users/register">Register</a></p>
 
         </div>
 
